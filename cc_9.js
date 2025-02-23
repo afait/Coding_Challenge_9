@@ -22,3 +22,29 @@ const emp1 = new Employee("Alice Johnson", 101, "Sales", 5000) // Establishes em
 // Test Cases
 console.log(emp1.getDetails()) // logs employee 1 details
 console.log(emp1.calculateAnnualSalary()); // logs employee 1 annual salary
+
+
+// Task 2 - Created Manager Class with Inheritance
+
+class Manager extends Employee {
+    constructor(name, id, department, salary, teamSize) {
+        super(name, id, department, salary);
+        this.teamSize = teamSize
+    };
+// Created the class Manager which inherits from Employee
+// Added new property teamSize
+
+getDetails() {
+    return `Employee: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: $${this.salary}, Team Size: ${this.teamSize}`
+};
+// Overrides getDetails so now it includes team size as a property
+calculateBonus() {
+    return (this.salary * 12) * .10
+};
+}; // Calculates a bonus based on 10% of the manager's annual salary
+
+const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5);
+// Declare mgr1 as the new manager with properties
+
+console.log(mgr1.getDetails()); // logs manager 1 details
+console.log(mgr1.calculateBonus()); // logs the bonus amount for manager 1
