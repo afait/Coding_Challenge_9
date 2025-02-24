@@ -74,6 +74,11 @@ listEmployees() {
 calculateTotalPayroll() {
     return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
 };
+ // For Task 5
+promoteToManager(employee, teamSize) {
+    const index = this.employees.indexOf(employee);
+    this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+}
 }; 
 
 // For Task 3 - Logs all of the employees and their details 
@@ -88,4 +93,7 @@ company.listEmployees(); // Lists all the employees in the company
 console.log(company.calculateTotalPayroll());
 
 
+// Task 5 - Implemented Promotion System
 
+company.promoteToManager(emp1, 3);
+company.listEmployees();
