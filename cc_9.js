@@ -39,8 +39,12 @@ getDetails() {
 };
 // Overrides getDetails so now it includes team size as a property
 calculateBonus() {
-    return (this.salary * 12) * .10
+    return (this.salary * 12) * .10 
 };
+// For Task 4
+calculateAnnualSalary() {
+    return super.calculateAnnualSalary() *1.1 // For Task 4
+}
 }; // Calculates a bonus based on 10% of the manager's annual salary
 
 const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5);
@@ -63,9 +67,25 @@ addEmployee(employee) {
 } // Adds an employee to the end of the array
 listEmployees() {
     this.employees.forEach(employee => {console.log(employee.getDetails())});
-}}; // Logs all of the employees and their details
+}
 
+// Task 4 - Implemented Payroll System
+
+calculateTotalPayroll() {
+    return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
+};
+}; 
+
+// For Task 3 - Logs all of the employees and their details 
 const company = new Company("TechCorp"); // Let the company be named "TechCorp"
 company.addEmployee(emp1); // Adds employee 1 to the company and logs their details
 company.addEmployee(mgr1); // Adds manager 1 to the company and logs their details
 company.listEmployees(); // Lists all the employees in the company
+
+
+
+// For Task 4 - Logs the total payroll of the company
+console.log(company.calculateTotalPayroll());
+
+
+
